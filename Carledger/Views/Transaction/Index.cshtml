@@ -1,0 +1,30 @@
+﻿@model List<Carledger.Models.MileageTransaction>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Transactions</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Timestamp</td>
+        <td>Car</td>
+        <td>new mileage</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var transaction in Model.OrderByDescending(x => x.Timestamp))
+    {
+        <tr>
+            <td>@transaction.TransactionId</td>
+            <td>@transaction.Timestamp</td>
+            <td>@transaction.Asset</td>
+            <td>@transaction.NewMileage</td>
+        </tr>
+    }
+    </tbody>
+</table>

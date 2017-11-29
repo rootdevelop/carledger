@@ -1,0 +1,31 @@
+/**
+ * Carledger Model
+ */
+
+namespace org.codeart.carledger
+
+asset Car identified by carId {
+  o String carId
+  o String licenceplate
+  o String make
+  o String model
+  --> Owner owner
+  o String mileage
+}
+
+participant Owner identified by ownerId {
+  o String ownerId
+  o String firstName
+  o String lastName
+}
+
+transaction MileageTransaction {
+  --> Car asset
+  o String newMileage
+}
+
+event MileageEvent {
+  --> Car asset
+  o String oldMileage
+  o String newMileage
+}

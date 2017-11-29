@@ -1,0 +1,38 @@
+﻿@model List<Carledger.Models.Car>
+
+@{
+    ViewBag.Title = "Cars";
+    Layout = "_Layout";
+}
+
+<h2>Cars</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>OwnerId</td>
+        <td>License Plate</td>
+        <td>Make</td>
+        <td>Model</td>
+        <td>Mileage</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var car in Model)
+    {
+        <tr>
+            <td>@car.CarId</td>
+            <td>@car.Owner</td>
+            <td>@car.Licenceplate</td>
+            <td>@car.Make</td>
+            <td>@car.Model</td>
+            <td>@car.Mileage</td>
+            <td><a asp-action="Index" asp-controller="Mileage" asp-route-carId="@car.CarId">Update Mileage</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+

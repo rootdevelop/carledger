@@ -1,0 +1,28 @@
+﻿@model List<Carledger.Models.Owner>
+
+@{
+    ViewBag.Title = "Owners";
+    Layout = "_Layout";
+}
+
+<h2>Owners</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>First name</td>
+        <td>Last name</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var owner in Model)
+    {
+        <tr>
+            <td>@owner.OwnerId</td>
+            <td>@owner.FirstName</td>
+            <td>@owner.LastName</td>
+        </tr>
+    }
+    </tbody>
+</table>
